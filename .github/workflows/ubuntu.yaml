@@ -1,0 +1,20 @@
+name: Ubuntu CI
+
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - name: Install CMake and PKG-Config
+        run: sudo apt-get install cmake pkg-config
+      - name: Build C++ Application
+        run: ./cpp/build.sh
