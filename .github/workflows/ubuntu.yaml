@@ -17,4 +17,4 @@ jobs:
       - name: Install CMake and PKG-Config
         run: sudo apt-get install cmake pkg-config
       - name: Build C++ Application
-        run: ./cpp/build.sh
+        run: cd cpp && ./build.sh
