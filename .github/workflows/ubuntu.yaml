@@ -16,5 +16,7 @@ jobs:
         run: git submodule update --init --recursive
       - name: Install CMake and PKG-Config
         run: sudo apt-get install cmake pkg-config
-      - name: Build C++ Application
+      - name: Build Application
         run: cd cpp && ./build.sh
+      - name: Run Tests
+        run: cd cpp && ./test.sh
